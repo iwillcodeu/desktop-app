@@ -1048,6 +1048,11 @@ Note.renderNotes = function(notes, forNewNote, hasSorted) {
         }
         return;
     }
+    //added by Mao
+    if(window.quickNode == true){
+        return;
+    }
+    //added ended
     Note.hideEditorMask();
     // 新建笔记时会先创建一个新笔记, 所以不能清空
     if (forNewNote == undefined) {
@@ -1091,6 +1096,7 @@ Note.renderNotes = function(notes, forNewNote, hasSorted) {
                 }
             })(i), i * 2000);
     }
+
 };
 
 Note._getNoteHtmlObjct = function(note, isShared) {

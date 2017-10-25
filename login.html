@@ -27,11 +27,11 @@ if(process.platform != 'darwin') {
 	</div>
 
 	<div class="bottom">
-		<a id="localAccount" onclick="openExternal('https://leanote.com/register')"  class="lang localAccount">Sign up Leanote</a>
+		<!-- <a id="localAccount" onclick="openExternal('https://leanote.com/register')"  class="lang localAccount">Sign up Leanote</a>-->
 
 		<a id="customServer" class="lang customServer">Sign in to Self-hosted Service</a>
 
-		<!-- <a id="localAccount" class="lang localAccount">Create Local Account</a> -->
+		<a id="localAccount" class="lang localAccount">Create Local Account</a>
 
 		<a id="loginWithLeanote" class="lang loginWithLeanote">Sign in to Leanote</a>
 	</div>
@@ -160,6 +160,8 @@ $(function() {
 		var pwd = $("#pwd").val();
 		var host = $host.val();
 
+		console.log('loginBtn is clicked');
+
 		if(!email) {
 			showMsg(getMsg("Email is required"), "email");
 			return;
@@ -276,13 +278,13 @@ $(function() {
 		hideMsg();
 	});
 
-	/*
+	
 	$('#localAccount').click(function() {
 		$body.addClass('local-account');
 		$('#username').focus();
 		hideMsg();
 	});
-	*/
+	
 
 	$('#loginWithLeanote').click(function () {
 		$body.removeClass('local-account custom-server');

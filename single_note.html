@@ -140,51 +140,6 @@ function log(o) {
       <div id="mainContainer" class="clearfix">
 
         <div id="leftNotebook">
-          <div id="notebook">
-            <div class="folderNote closed" id="myStarredNotes">
-              <div class="folderHeader">
-                <i class="fa fa-star-o fa-left"></i>
-                <span class="lang">
-                  Starred
-                </span>
-              </div>
-
-              <ul class="folderBody" id="starNotes">
-                <li noteId=""><a><span class="delete-star" title="Remove">X</span></a></li>
-              </ul>
-            </div>
-
-            <div class="folderNote opened" id="myNotebooks">
-              <div class="folderHeader clearfix">
-                <i class="fa fa-book pull-left fa-left"></i>
-                <span class="pull-left lang">
-                  Notebook
-                </span>
-                <div class="pull-right" id="addNotebookPlus" title="Add notebook">
-                  <i class="fa  fa-plus" title="Add notebook"></i>
-                </div>
-              </div>
-
-              <div class="folderBody">
-                <input type="text" class="form-control lang-placeholder" id="searchNotebookForList" placeholder="Search notebook"/>
-                <ul class="ztree" id="notebookList"></ul>
-                <ul class="ztree" id="notebookListForSearch"></ul>
-              </div>
-            </div>
-
-            <div class="folderNote closed" id="myTag">
-              <div class="folderHeader">
-                <i class="fa fa-bookmark fa-left"></i>
-                <span class="lang">
-                  Tag
-                </span>
-              </div>
-
-              <ul class="folderBody clearfix" id="tagNav">
-              </ul>
-            </div>
-
-          </div>
 
           <!--
           底下
@@ -256,10 +211,7 @@ function log(o) {
 
           <!-- 笔记列表 -->
           <!-- wrap 为了slimScroll -->
-          <div id="noteItemListWrap">
-            <ul id="noteItemList" class="snippet-view">
-            </ul>
-          </div>
+          
         </div>
 
         <div class="noteSplit" id="noteSplitter"></div>
@@ -267,15 +219,15 @@ function log(o) {
         <div id="note" class="read-only-editor">
 
           <!-- 遮罩, 为了resize3Columns用 -->
-          <div id="noteMask" class="note-mask"></div>
+          <div id="noteMask" class="note-mask" style="z-index: -1;"></div>
 
-          <div id="noteMaskForLoading" class="note-mask"> <!-- z-index: 11 -->
+          <div id="noteMaskForLoading" class="note-mask" style="z-index: -1;"> <!-- z-index: 11 -->
             <img src="public/images/loading-24.gif"/>
             <br />
             <span class="lang">loading...</span>
           </div>
 
-          <div id="editorMask">  <!-- z-index: 10 -->
+          <div id="editorMask" style="z-index: 0; display: block;">  <!-- z-index: 10 -->
             <span class="lang">noNoteNewNoteTips</span>
             <br />
             <br />
@@ -347,7 +299,7 @@ function log(o) {
             </div>
           </div>
 
-          <div id="editor">
+          <div id="editor" style="z-index: 0; display: block;">
             <!-- 编辑器 -->
             <div id="mceToolbar">
               <div id="mceToolbarContainer">
@@ -651,6 +603,7 @@ window.requireNode = window.require;
 window.nodeRequire = window.require;
 window.require = undefined;
 window.debug = true;
+window.quickNode = true;
 </script>
 
 <!-- 渲染view -->
@@ -668,7 +621,8 @@ window.debug = true;
 <!-- 使用require js -->
 <script src="public/js/require.js"></script>
 <!-- 导入插件 执行 -->
-<script src="public/js/main.js"></script>
+<script src="public/js/main.js">
+</script>
 <!-- markdown editor -->
 <script src="public/md/main-v2.min.js"></script>
 <!-- extra额外 -->
@@ -677,6 +631,7 @@ window.debug = true;
 <script>
 window.require = window.requireNode;
 </script>
+
 <!-- 远程控制, 升级 
 <script>
 (function () {

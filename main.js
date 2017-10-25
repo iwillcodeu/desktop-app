@@ -7,6 +7,9 @@ const Tray = electron.Tray
 var pdfMain = require('pdf_main');
 var appIcon;
 
+
+const globalShortcut = electron.globalShortcut;
+
 // Report crashes to our server.
 crashReporter.start({
   productName: 'YourName',
@@ -75,7 +78,6 @@ var DB = {
   init: function () {
     var me = this;
     var db = require('db_main');
-
     // 前端发来消息
     // m = {token: token, method: 'insert, findOne', dbname: 'notes', params: {username: "life"}};
     ipc.on('db-exec', function(event, m) {
@@ -273,4 +275,9 @@ function openIt() {
 
   });
 
+  globalShortcut.register('CommandOrControl+Alt+N', function () {
+    console.log('Open ' + 'file://' + __dirname + '/single_note.html');
+    var win3 = new BrowserWindow({width: 800, height: 600})
+    win3.loadURL('file://' + __dirname + '/single_note.html');
+  });
 }
