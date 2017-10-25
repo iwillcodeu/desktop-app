@@ -1048,11 +1048,12 @@ Note.renderNotes = function(notes, forNewNote, hasSorted) {
         }
         return;
     }
-    //added by Mao
+    //added by IWillCodeU
     if(window.quickNode == true){
         return;
     }
-    //added ended
+    //added ends
+    
     Note.hideEditorMask();
     // 新建笔记时会先创建一个新笔记, 所以不能清空
     if (forNewNote == undefined) {
